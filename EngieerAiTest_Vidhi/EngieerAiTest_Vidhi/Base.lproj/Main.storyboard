@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUU-Fy-LY2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="71.5"/>
+                                                    <rect key="frame" x="0.0" y="5" width="345" height="61.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64K-nx-tZf">
                                                             <rect key="frame" x="10" y="0.0" width="325" height="24"/>
@@ -38,7 +38,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNu-Jl-igX">
-                                                            <rect key="frame" x="10" y="29" width="325" height="37.5"/>
+                                                            <rect key="frame" x="10" y="29" width="325" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wUU-Fy-LY2" firstAttribute="top" secondItem="0NU-y2-mwo" secondAttribute="top" id="3Kl-4u-b4d"/>
+                                                <constraint firstItem="wUU-Fy-LY2" firstAttribute="top" secondItem="0NU-y2-mwo" secondAttribute="top" constant="5" id="3Kl-4u-b4d"/>
                                                 <constraint firstItem="BGg-0h-CPA" firstAttribute="leading" secondItem="wUU-Fy-LY2" secondAttribute="trailing" constant="10" id="7xy-M5-8Sd"/>
                                                 <constraint firstAttribute="trailing" secondItem="BGg-0h-CPA" secondAttribute="trailing" constant="10" id="Kgf-XH-EVM"/>
-                                                <constraint firstAttribute="bottom" secondItem="wUU-Fy-LY2" secondAttribute="bottom" id="LId-iV-8cP"/>
+                                                <constraint firstAttribute="bottom" secondItem="wUU-Fy-LY2" secondAttribute="bottom" constant="5" id="LId-iV-8cP"/>
                                                 <constraint firstItem="wUU-Fy-LY2" firstAttribute="leading" secondItem="0NU-y2-mwo" secondAttribute="leading" id="k62-mf-bgm"/>
                                                 <constraint firstItem="BGg-0h-CPA" firstAttribute="centerY" secondItem="0NU-y2-mwo" secondAttribute="centerY" id="v2j-wl-JNN"/>
                                             </constraints>

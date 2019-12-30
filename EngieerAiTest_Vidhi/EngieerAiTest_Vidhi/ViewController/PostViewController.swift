@@ -19,7 +19,8 @@ class PostViewController: UIViewController {
     private var refreshControl : UIRefreshControl = UIRefreshControl()
     private var isHasMore : Bool = true
     private var page : Int = 0
-     //MARK: LifeCycle
+
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
@@ -31,13 +32,15 @@ class PostViewController: UIViewController {
         self.title = "No post selected."
         self.tableViewPost.addInfiniteScroll { (table) in
             table.finishInfiniteScroll()
+            if self.isHasMore{
+                self.getPost(pageNumber: self.page + 1)
+            }
         }
         self.tableViewPost.refreshControl = refreshControl
         self.tableViewPost.refreshControl?.addTarget(self, action: #selector(refreshPost), for: .valueChanged)
         self.getPost()
         self.showNumberOfPostSelected()
     }
-    
     private func showNumberOfPostSelected() {
         self.tableViewPost.reloadData()
         let selectedPost = self.arrayHits.filter { (hit) -> Bool in
@@ -46,14 +49,12 @@ class PostViewController: UIViewController {
         if selectedPost.count == 0 {
             self.title = "No post selected."
         }else if selectedPost.count == 1{
-            self.title = "No post selected = \(selectedPost.count)"
+            self.title = "Number of post selected \(selectedPost.count)."
         }else {
-            self.title = "No posts selected = \(selectedPost.count)"
+            self.title = "Number of posts selected \(selectedPost.count)."
         }
     }
-    
     private func getPost(pageNumber : Int = 1) {
-        
         PostController.share.getPost(pageNumber) { (allPost) in
             if let allHits = allPost.hits {
                 if pageNumber == 1 {
@@ -63,10 +64,12 @@ class PostViewController: UIViewController {
                 self.arrayHits.append(contentsOf: allHits)
                 self.tableViewPost.reloadData()
                 self.isHasMore = allPost.page! < allPost.nbPages!
+                if !self.isHasMore{
+                    self.tableViewPost.removeInfiniteScroll()
+                }
             }
         }
     }
-    
     @objc private func refreshPost() {
         self.getPost()
     }
@@ -76,21 +79,13 @@ extension PostViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrayHits.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableCell", for: indexPath) as! PostTableCell
         cell.postHit = self.arrayHits[indexPath.row]
         cell.changeNavigationTitle = { (hit) in
             self.arrayHits[indexPath.row] = hit
             self.showNumberOfPostSelected()
-            
         }
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == self.arrayHits.count - 1 && self.isHasMore {
-            self.getPost(pageNumber: self.page + 1)
-        }
     }
 }

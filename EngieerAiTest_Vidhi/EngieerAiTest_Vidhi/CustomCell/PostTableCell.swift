@@ -8,23 +8,15 @@
 
 import UIKit
 
-class PostTableCell: UITableViewCell {
-
+final class PostTableCell: UITableViewCell {
+    
+    //MARK: Outlet
     @IBOutlet private weak var labelPostTitle: UILabel!
     @IBOutlet weak var labelPostDate: UILabel!
     @IBOutlet weak var switchPostActiveInactive: UISwitch!
     var changeNavigationTitle :((Hits) -> Void)?
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+   
+    //MARK: Varible
     var postHit : Hits! {
         didSet {
             if let hit = self.postHit {
@@ -36,9 +28,8 @@ class PostTableCell: UITableViewCell {
                     formate.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"
                     formate.timeZone = TimeZone.current
                     if let creDate = formate.date(from: createDate) {
-                        let displayFormate = DateFormatter()
-                        displayFormate.dateFormat = "E,  d MMM yyyy hh:mm:ss a"
-                        self.labelPostDate.text = displayFormate.string(from: creDate)
+                        formate.dateFormat = "E,  d MMM yyyy hh:mm:ss a"
+                        self.labelPostDate.text = formate.string(from: creDate)
                     }
                 }
                 self.switchPostActiveInactive.isOn = hit.isActive
@@ -46,7 +37,18 @@ class PostTableCell: UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
     
+    //MARK: Methods
     @IBAction func switchActiveDeactivePost(_ sender: Any) {
         self.postHit.isActive = !self.postHit.isActive
         self.changeNavigationTitle?(self.postHit)

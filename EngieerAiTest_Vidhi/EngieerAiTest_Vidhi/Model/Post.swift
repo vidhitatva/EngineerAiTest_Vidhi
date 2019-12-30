@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct Post : Codable {
     let hits : [Hits]?
     let nbHits : Int?
