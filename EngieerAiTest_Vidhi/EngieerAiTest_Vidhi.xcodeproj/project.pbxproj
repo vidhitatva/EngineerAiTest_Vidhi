@@ -16,6 +16,7 @@
 		1C7F90AA23BA05000066AAE0 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F90A923BA05000066AAE0 /* PostController.swift */; };
 		1C7F90AC23BA05200066AAE0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F90AB23BA05200066AAE0 /* PostViewController.swift */; };
 		1C7F90AF23BA06300066AAE0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F90AE23BA06300066AAE0 /* Post.swift */; };
+		1C7F90B123BA0A140066AAE0 /* PostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F90B023BA0A140066AAE0 /* PostTableCell.swift */; };
 		FE0058946D03A6BF43827CC1 /* Pods_EngieerAiTest_Vidhi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6313D7F0B294C113EE91C124 /* Pods_EngieerAiTest_Vidhi.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1C7F90A923BA05000066AAE0 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		1C7F90AB23BA05200066AAE0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		1C7F90AE23BA06300066AAE0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		1C7F90B023BA0A140066AAE0 /* PostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableCell.swift; sourceTree = "<group>"; };
 		6313D7F0B294C113EE91C124 /* Pods_EngieerAiTest_Vidhi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngieerAiTest_Vidhi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA169FB0B2475F5FCC402427 /* Pods-EngieerAiTest_Vidhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngieerAiTest_Vidhi.debug.xcconfig"; path = "Target Support Files/Pods-EngieerAiTest_Vidhi/Pods-EngieerAiTest_Vidhi.debug.xcconfig"; sourceTree = "<group>"; };
 		C709B7E05EA4CE2821A45A96 /* Pods-EngieerAiTest_Vidhi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngieerAiTest_Vidhi.release.xcconfig"; path = "Target Support Files/Pods-EngieerAiTest_Vidhi/Pods-EngieerAiTest_Vidhi.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		1C7F90A423BA00570066AAE0 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				1C7F90B023BA0A140066AAE0 /* PostTableCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7F90A623BA006B0066AAE0 /* RequestManager.swift in Sources */,
+				1C7F90B123BA0A140066AAE0 /* PostTableCell.swift in Sources */,
 				1C7F90AA23BA05000066AAE0 /* PostController.swift in Sources */,
 				1C7F908F23B9FEC60066AAE0 /* AppDelegate.swift in Sources */,
 				1C7F90AF23BA06300066AAE0 /* Post.swift in Sources */,
