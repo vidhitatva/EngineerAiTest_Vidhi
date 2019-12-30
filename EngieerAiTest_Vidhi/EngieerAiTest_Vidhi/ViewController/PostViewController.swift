@@ -19,7 +19,7 @@ class PostViewController: UIViewController {
     private var refreshControl : UIRefreshControl = UIRefreshControl()
     private var isHasMore : Bool = true
     private var page : Int = 0
-
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,29 +49,33 @@ class PostViewController: UIViewController {
         if selectedPost.count == 0 {
             self.title = "No post selected."
         }else if selectedPost.count == 1{
-            self.title = "Number of post selected \(selectedPost.count)."
+            self.title = "Number of post selected : \(selectedPost.count)"
         }else {
-            self.title = "Number of posts selected \(selectedPost.count)."
+            self.title = "Number of posts selected : \(selectedPost.count)"
         }
     }
-    private func getPost(pageNumber : Int = 1) {
+    private func getPost(pageNumber : Int = 1, isPullToRefresh : Bool = false) {
         PostController.share.getPost(pageNumber) { (allPost) in
             if let allHits = allPost.hits {
                 if pageNumber == 1 {
                     self.arrayHits.removeAll()
                 }
+                if isPullToRefresh {
+                    self.tableViewPost.refreshControl?.endRefreshing()
+                    self.showNumberOfPostSelected()
+                }
                 self.page = allPost.page!
                 self.arrayHits.append(contentsOf: allHits)
-                self.tableViewPost.reloadData()
                 self.isHasMore = allPost.page! < allPost.nbPages!
                 if !self.isHasMore{
                     self.tableViewPost.removeInfiniteScroll()
                 }
+                self.tableViewPost.reloadData()
             }
         }
     }
     @objc private func refreshPost() {
-        self.getPost()
+        self.getPost(isPullToRefresh: true)
     }
 }
 
