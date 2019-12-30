@@ -19,6 +19,7 @@ struct RequestHttp {
 class RequestManager{
     static let share : RequestManager = RequestManager()
 
+    //MARK: Methods
     func requestWithGet(_ url : String,completion: @escaping(_ success: Bool,_ response : Data,_ message : String ) -> Void) {
         let request = self.createBody(url, method: .get, header: self.basicHeader, parameters: [:])
         self.sendRequest(request: request) { (status, result, message) in

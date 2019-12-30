@@ -10,7 +10,8 @@ import Foundation
 
 final class PostController {
     static let share : PostController = PostController()
-    
+
+    //MARK: Methods
     func getPost(_ page : Int,completion:@escaping(_ post : Post) -> Void) {
         RequestManager.share.requestWithGet(API.getUserPost(pageNumber: page)) { (status, result, message) in
             if status {

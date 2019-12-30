@@ -61,8 +61,7 @@ class PostViewController: UIViewController {
                     self.arrayHits.removeAll()
                 }
                 if isPullToRefresh {
-                    self.tableViewPost.refreshControl?.endRefreshing()
-                    self.showNumberOfPostSelected()
+                    self.refreshControl.endRefreshing()
                 }
                 self.page = allPost.page!
                 self.arrayHits.append(contentsOf: allHits)
@@ -71,6 +70,7 @@ class PostViewController: UIViewController {
                     self.tableViewPost.removeInfiniteScroll()
                 }
                 self.tableViewPost.reloadData()
+                self.showNumberOfPostSelected()
             }
         }
     }

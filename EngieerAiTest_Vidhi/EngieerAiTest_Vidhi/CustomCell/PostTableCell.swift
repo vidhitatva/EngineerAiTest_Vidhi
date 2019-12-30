@@ -28,7 +28,7 @@ final class PostTableCell: UITableViewCell {
                     formate.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"
                     formate.timeZone = TimeZone.current
                     if let creDate = formate.date(from: createDate) {
-                        formate.dateFormat = "E,  d MMM yyyy hh:mm:ss a"
+                        formate.dateFormat = "E, d MMM yyyy hh:mm:ss a"
                         self.labelPostDate.text = formate.string(from: creDate)
                     }
                 }
@@ -36,18 +36,7 @@ final class PostTableCell: UITableViewCell {
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     //MARK: Methods
     @IBAction func switchActiveDeactivePost(_ sender: Any) {
         self.postHit.isActive = !self.postHit.isActive
